@@ -107,6 +107,7 @@ where
 }
 
 #[test]
+#[cfg_attr(target_os = "aix", ignore)]
 fn test_server_shutdown() {
     let f = TestFixture::new();
     let (addr, _sender, _storage, child) = run_server_thread(f.tempdir.path(), None);
@@ -120,6 +121,7 @@ fn test_server_shutdown() {
 
 /// The server will shutdown when requested when the idle timeout is disabled.
 #[test]
+#[cfg_attr(target_os = "aix", ignore)]
 fn test_server_shutdown_no_idle() {
     let f = TestFixture::new();
     // Set a ridiculously low idle timeout.
@@ -155,6 +157,7 @@ fn test_server_idle_timeout() {
 }
 
 #[test]
+#[cfg_attr(target_os = "aix", ignore)]
 fn test_server_stats() {
     let f = TestFixture::new();
     let (addr, sender, _storage, child) = run_server_thread(f.tempdir.path(), None);
@@ -172,6 +175,7 @@ fn test_server_stats() {
 }
 
 #[test]
+#[cfg_attr(target_os = "aix", ignore)]
 fn test_server_unsupported_compiler() {
     let f = TestFixture::new();
     let (addr, sender, server_creator, child) = run_server_thread(f.tempdir.path(), None);
@@ -222,6 +226,7 @@ fn test_server_unsupported_compiler() {
 }
 
 #[test]
+#[cfg_attr(target_os = "aix", ignore)]
 fn test_server_compile() {
     let _ = env_logger::try_init();
     let f = TestFixture::new();
